@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import nav_logo from "../../assets/logo.png";
 import { FaUser } from "react-icons/fa6";
+import { IoMenuSharp } from "react-icons/io5";
 
 const Navbar = () => {
   return (
@@ -17,6 +18,7 @@ const Navbar = () => {
 
       <div className="nav-user">
         <FaUser className="user-img" />
+        <IoMenuSharp  className="menu"/>
       </div>
     </div>
   );
