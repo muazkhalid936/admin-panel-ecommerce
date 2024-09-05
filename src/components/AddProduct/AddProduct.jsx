@@ -28,9 +28,8 @@ const AddProduct = () => {
     console.log("Product Details:", productDetails);
 
     try {
-      // Step 1: Upload the image
       let formData = new FormData();
-      formData.append("product", image); // Append the image file
+      formData.append("product", image);
 
       const uploadResponse = await fetch("http://localhost:4000/upload", {
         method: "POST",
@@ -42,10 +41,9 @@ const AddProduct = () => {
       if (uploadResult.success === 1) {
         console.log("Image uploaded successfully:", uploadResult.image_url);
 
-        // Step 2: Add product details along with the image URL
         const productPayload = {
           name: productDetails.name,
-          image: uploadResult.image_url, // Use the uploaded image URL
+          image: uploadResult.image_url,
           category: productDetails.category,
           new_price: productDetails.new_price,
           old_price: productDetails.old_price,
@@ -76,7 +74,6 @@ const AddProduct = () => {
       }
     } catch (error) {
       console.error("Error occurred:", error);
-      // Handle fetch/network errors
     }
   };
 
