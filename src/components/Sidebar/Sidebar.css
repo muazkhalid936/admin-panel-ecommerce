@@ -7,7 +7,7 @@
   max-width:17%;
   background-color: white;
   gap: 20px;
-  height: 100vh;
+  height: auto;
 }
 .addproduct {
   color: black;

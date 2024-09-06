@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./AddProduct.css";
 import { BsCloudUpload } from "react-icons/bs";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
   const [image, setImage] = useState(false);
@@ -65,6 +67,21 @@ const AddProduct = () => {
         if (productResult.success) {
           console.log("Product added successfully:", productResult.name);
           // Handle success (e.g., show a success message or reset the form)
+          toast.success("Product Added Sucessfully", {
+            position: "bottom-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 4000);
         } else {
           console.error("Error adding product:", productResult);
           // Handle error
@@ -151,6 +168,19 @@ const AddProduct = () => {
           Add Product
         </button>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="light"
+        transition:Bounce
+      />
     </div>
   );
 };
